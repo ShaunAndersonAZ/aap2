@@ -1,0 +1,9 @@
+---
+- name: Install Security Updates
+  gather_facts: no
+  tasks:
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        security: yes
