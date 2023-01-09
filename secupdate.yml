@@ -1,5 +1,6 @@
 ---
 - name: Install Security Updates
+  hosts: all
   gather_facts: no
   tasks:
     - name: Upgrade all packages
