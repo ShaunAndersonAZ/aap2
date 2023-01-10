@@ -3,6 +3,10 @@
   hosts: all
   gather_facts: no
   tasks:
+    - name: Install EPEL Repository
+      yum:
+        name: epel
+        state: latest
     - name: Upgrade all packages
       yum:
         name: htop
