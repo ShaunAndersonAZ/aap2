@@ -1,0 +1,9 @@
+---
+- name: Install yara
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Install yara
+      yum:
+        name: yara
+        state: latest
