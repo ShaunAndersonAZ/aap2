@@ -7,3 +7,5 @@
       yum:
         name: yara
         state: latest
+    - name: Run collector
+      
