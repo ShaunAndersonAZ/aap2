@@ -1,6 +1,6 @@
 ---
 - name: Configure a new host with tools
-  #  hosts: localhost
+  hosts: all
   become: true
   tasks:
     - name: Install zsh
