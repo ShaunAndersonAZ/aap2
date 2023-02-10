@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - role: gantsign.oh-my-zsh
+    - role: diodonfrost.p10k
+      zsh_plugin: ohmyzsh

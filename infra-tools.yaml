@@ -1,0 +1,41 @@
+---
+- name: Configure a new host with tools
+  #  hosts: localhost
+  become: true
+  tasks:
+    - name: Install zsh
+      ansible.builtin.package:
+        name: zsh
+        state: present
+
+    - name: Install system packgages and tools
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - neovim
+        - tree
+        - curl
+        - net-tools
+        - yamllint
+        - htop
+        - git
+        - bat  # add alias
+
+    - name: Add 'bat' alias to .zshrc
+      shell: "echo 'alias cat=batcat' >> /home/sanderson/.zshrc"
+
+    - name: Configure GIT email
+      community.general.git_config:
+        name: user.email
+        scope: global
+        value: 'shaunandersonaz@gmail.com'
+
+    - name: Configure GIT name
+      community.general.git_config:
+        name: user.name
+        scope: global
+        value: 'Shaun Anderson'
+
+    - name: Source .zshrc
+      shell: "/bin/sh . /home/sanderson/.zshrc"
